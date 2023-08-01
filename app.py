@@ -14,7 +14,7 @@ class HeartBeatCheck(Resource):
         heartBeat = postedData["heartBeat"]
 
         with open('modelnaive.pkl', 'rb') as f:
-            clf3 = pickle.load(f)
+            clf3 = pickle.load(f,encoding='latin1')
 
         data = np.array([int(age),int(heartBeat)]).tolist()
         heartbeat_prediction = clf3.predict([data]).tolist()[0]
